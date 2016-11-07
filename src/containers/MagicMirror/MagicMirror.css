@@ -1,0 +1,8 @@
+.magicmirror {
+  background: hsla(0, 0%, 5%, 1);
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}

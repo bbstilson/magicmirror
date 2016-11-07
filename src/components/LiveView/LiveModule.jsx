@@ -1,0 +1,50 @@
+import './LiveModule.css';
+import ItemType from 'constants/ItemType';
+import Module from 'models/Module';
+import { positionAndDimensionsToStyles } from 'utils/styles';
+
+import React, { PropTypes } from 'react';
+import { DragSource } from 'react-dnd';
+
+const LiveModule = ({ children, connectDragSource, isDragging, position, width, height }) => {
+  if (isDragging) return null;
+
+  return connectDragSource(
+    <div className="live-module__container" style={positionAndDimensionsToStyles(position, width, height)}>
+      <span className="live-module__name">{children}</span>
+    </div>
+  );
+};
+
+LiveModule.propTypes = {
+  children: PropTypes.string.isRequired,
+  module: PropTypes.instanceOf(Module).isRequired,
+  position: PropTypes.shape({
+    top: PropTypes.number.isRequired,
+    left: PropTypes.number.isRequired
+  }).isRequired,
+  width: PropTypes.number.isRequired,
+  height: PropTypes.number.isRequired,
+  connectDragSource: PropTypes.func.isRequired,
+  isDragging: PropTypes.bool.isRequired
+};
+
+/**
+ * React DnD
+ */
+const liveModuleSource = {
+  beginDrag(props) {
+    const { module, position } = props;
+    const { left, top } = position;
+    return { module, left, top };
+  }
+};
+
+function collect(connect, monitor) {
+  return {
+    connectDragSource: connect.dragSource(),
+    isDragging: monitor.isDragging()
+  }
+}
+
+export default DragSource(ItemType.LiveModule, liveModuleSource, collect)(LiveModule);

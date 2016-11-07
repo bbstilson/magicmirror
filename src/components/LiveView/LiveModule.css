@@ -1,0 +1,11 @@
+.live-module__container {
+  color: lightgray;
+  border: 1px dashed;
+  position: absolute;
+  cursor: move;
+  background: hsla(0, 0%, 10%, 1);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}

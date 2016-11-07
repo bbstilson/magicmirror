@@ -1,0 +1,11 @@
+.compliments__container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  height: 100%;
+}
+
+.compliments__text {
+  font-size: 1.5em;
+  text-align: center;
+}
