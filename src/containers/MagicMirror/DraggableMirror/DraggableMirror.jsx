@@ -1,6 +1,6 @@
 import LiveModule from 'components/LiveView/LiveModule';
 
-import ItemType from 'constants/ItemType';
+import ItemType from 'constants/itemtype';
 import Module from 'models/Module';
 import { updateModulePosition } from 'redux/modules/modules';
 import './DraggableMirror.css';
@@ -93,6 +93,6 @@ function mapDispatchToProps (dispatch) {
 
 export default connect(mapStateToProps, mapDispatchToProps)(
   DragDropContext(HTML5Backend)(
-    DropTarget(ItemType.LiveModule, windowTarget, collect)(DraggableMirror)
+    DropTarget(ItemType.LIVE_MODULE, windowTarget, collect)(DraggableMirror)
   )
 );

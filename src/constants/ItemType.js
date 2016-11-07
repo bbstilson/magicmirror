@@ -1,3 +1,3 @@
 export default {
-  LiveModule: 'livemodule'
+  LIVE_MODULE: "LiveModule"
 };

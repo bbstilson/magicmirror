@@ -2,7 +2,7 @@ import Ratio from 'components/layout/Ratio';
 import DraggableMirror from './DraggableMirror/DraggableMirror';
 import StaticMirror from './StaticMirror/StaticMirror';
 
-import Context from 'constants/Context';
+import Context from 'constants/context';
 import './MagicMirror.css';
 
 import React, { PropTypes } from 'react';

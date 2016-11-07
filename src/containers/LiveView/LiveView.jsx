@@ -1,7 +1,7 @@
 import MagicMirror from 'containers/MagicMirror/MagicMirror';
 import RotateOrientation from 'components/general/RotateOrientation';
 
-import Context from 'constants/Context';
+import Context from 'constants/context';
 import './LiveView.css';
 
 import React from 'react';

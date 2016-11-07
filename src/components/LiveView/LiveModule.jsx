@@ -1,5 +1,5 @@
 import './LiveModule.css';
-import ItemType from 'constants/ItemType';
+import ItemType from 'constants/itemtype';
 import Module from 'models/Module';
 import { positionAndDimensionsToStyles } from 'utils/styles';
 
@@ -47,4 +47,4 @@ function collect(connect, monitor) {
   }
 }
 
-export default DragSource(ItemType.LiveModule, liveModuleSource, collect)(LiveModule);
+export default DragSource(ItemType.LIVE_MODULE, liveModuleSource, collect)(LiveModule);

@@ -20,23 +20,20 @@ class StaticMirror extends Component {
   };
 
   componentDidMount() {
-    // fake api delay
-    setTimeout(() => {
-      Promise.all(
-        this.props.activeModules.map((module) => {
-          return Promise.resolve(require(`modules/${module.path}/index.js`))
-            .then((m) => Promise.resolve({
-              ...module,
-              Component: m.default
-            }));
-        })
-      ).then(modules => {
-        this.setState({
-          modules,
-          loading: false
-        });
+    Promise.all(
+      this.props.activeModules.map((module) => {
+        return Promise.resolve(require(`modules/${module.path}/index.js`))
+          .then((m) => Promise.resolve({
+            ...module,
+            Component: m.default
+          }));
+      })
+    ).then(modules => {
+      this.setState({
+        modules,
+        loading: false
       });
-    }, 1000);
+    });
   }
 
   componentWillReceiveProps(nextProps) {
