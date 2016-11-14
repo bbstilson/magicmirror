@@ -15,14 +15,14 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-  align-content: center;
+  align-items: center;
 }
 
 .flex--column--center {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  align-content: center;
+  align-items: center;
 }
 
 .flex--space-between {
