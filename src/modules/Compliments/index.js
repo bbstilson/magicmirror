@@ -32,7 +32,7 @@ export default class Compliments extends Component {
 
   render() {
     return (
-      <div className="compliments__container">
+      <div className="compliments__container flex--column--center">
         <p className="compliments__text">{this.state.compliment}</p>
       </div>
     );

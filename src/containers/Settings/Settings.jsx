@@ -29,7 +29,7 @@ class Settings extends Component {
     const { portrait } = this.props;
 
     return (
-      <div className="settings">
+      <div className="flex--column--center full">
         <NavigationIcons navConfig={config} />
         <h1 className="settings__title">Settings</h1>
         <div className="settings__container">

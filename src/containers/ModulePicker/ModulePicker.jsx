@@ -33,9 +33,8 @@ class ModulePicker extends Component {
     const { activeMap, available } = this.props;
 
     return (
-      <div className="module-picker">
-        <h1 className="module-picker__header">Modules</h1>
-        <div className="module-picker__modules-container">
+      <div className="module-picker flex--column--center">
+        <div>
           {available.map(module =>
             <Module
                 key={module.name}

@@ -1,10 +1,6 @@
 .news-feed {
   height: 100%;
   text-align: center;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
   font-size: 1em;
   font-weight: 300;
 }

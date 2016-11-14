@@ -1,9 +1,3 @@
-.module-picker__header {
-  text-align: center;
-}
-
-.module-picker__modules-container {
-  border-top: 1px solid lightgray;
-  border-left: 1px solid lightgray;
-  border-right: 1px solid lightgray;
+.module-picker {
+  margin-top: 50px;
 }

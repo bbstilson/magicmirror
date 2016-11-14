@@ -5,11 +5,4 @@ import './LiveView.css';
 
 import React from 'react';
 
-export default () => (
-  <div className="liveview full">
-    <h1 className="liveview__header">Live View</h1>
-    <div className="liveview__view full">
-      <MagicMirror renderContext={Context.LIVE_VIEW} />
-    </div>
-  </div>
-);
+export default () => <MagicMirror renderContext={Context.LIVE_VIEW} />;

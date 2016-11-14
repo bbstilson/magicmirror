@@ -54,7 +54,7 @@ export default class NewsFeed extends Component {
       const since = nowUTC.subtract(modifiedPublishedAt);
 
       return (
-        <div className="news-feed">
+        <div className="news-feed flex--column--center">
           <p className="news-feed__author">{author}, {since.minutes()} minutes ago:</p>
           <p className="news-feed__title">{title}</p>
           <p className="news-feed__description">{description}</p>

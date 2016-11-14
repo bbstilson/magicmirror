@@ -9,7 +9,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 const MagicMirror = ({ renderContext, portrait }) => (
-  <div className={`magicmirror full-${portrait ? 'height' : 'width'}`}>
+  <div className={`magicmirror flex--row--center full-${portrait ? 'height' : 'width'}`}>
     <Ratio x={1} y={2} portrait={portrait}>
       {(width, height) => {
         const props = { width, height };

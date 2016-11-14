@@ -10,7 +10,9 @@ const LiveModule = ({ children, connectDragSource, isDragging, position, Y, X })
   if (isDragging) return null;
 
   return connectDragSource(
-    <div className="live-module__container" style={positionAndDimensionsToStyles(position, Y, X)}>
+    <div
+        className="live-module__container flex--column--center"
+        style={positionAndDimensionsToStyles(position, Y, X)}>
       <span className="live-module__name">{children}</span>
     </div>
   );
