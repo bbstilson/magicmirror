@@ -19,7 +19,7 @@ export function rotateOrientation () {
  */
 
 const initialState = {
-  portrait: false
+  portrait: true
 };
 
 export default (state = initialState, action = {}) => {

@@ -6,3 +6,12 @@
   height: 100%;
   width: 100%;
 }
+
+.settings__title {
+  margin-top: -2em;
+}
+
+.settings__container {
+  width: 50%;
+  max-width: 500px;
+}

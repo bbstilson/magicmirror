@@ -1,6 +1,5 @@
 .magicmirror {
-  background: hsla(0, 0%, 5%, 1);
-  width: 100%;
+  background: hsla(0, 0%, 10%, 1);
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;

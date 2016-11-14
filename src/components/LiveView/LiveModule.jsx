@@ -6,11 +6,11 @@ import { positionAndDimensionsToStyles } from 'utils/styles';
 import React, { PropTypes } from 'react';
 import { DragSource } from 'react-dnd';
 
-const LiveModule = ({ children, connectDragSource, isDragging, position, width, height }) => {
+const LiveModule = ({ children, connectDragSource, isDragging, position, Y, X }) => {
   if (isDragging) return null;
 
   return connectDragSource(
-    <div className="live-module__container" style={positionAndDimensionsToStyles(position, width, height)}>
+    <div className="live-module__container" style={positionAndDimensionsToStyles(position, Y, X)}>
       <span className="live-module__name">{children}</span>
     </div>
   );
@@ -23,8 +23,8 @@ LiveModule.propTypes = {
     top: PropTypes.number.isRequired,
     left: PropTypes.number.isRequired
   }).isRequired,
-  width: PropTypes.number.isRequired,
-  height: PropTypes.number.isRequired,
+  Y: PropTypes.number.isRequired,
+  X: PropTypes.number.isRequired,
   connectDragSource: PropTypes.func.isRequired,
   isDragging: PropTypes.bool.isRequired
 };

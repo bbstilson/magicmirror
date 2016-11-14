@@ -19,7 +19,7 @@ const config = [
 ];
 
 export default () => (
-  <div>
+  <div className="full">
     <NavigationIcons navConfig={config} />
     <MagicMirror renderContext={Context.HOME} />
   </div>
