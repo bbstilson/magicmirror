@@ -1,5 +1,5 @@
 # Todos:
-- screen rotation (SERIOUSLY THO). need to work out some sort of grid system maybe?...
+- need to work out some sort of grid system maybe?
 - hook up firebase
 - google auth
 - fix overflow on Modules

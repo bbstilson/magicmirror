@@ -34,7 +34,7 @@ class ModulePicker extends Component {
 
     return (
       <div className="module-picker flex--column--center">
-        <div>
+        <div className="full-width">
           {available.map(module =>
             <Module
                 key={module.name}

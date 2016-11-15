@@ -5,4 +5,8 @@ import './LiveView.css';
 
 import React from 'react';
 
-export default () => <MagicMirror renderContext={Context.LIVE_VIEW} />;
+export default () => (
+  <div className="full flex--column--center">
+    <MagicMirror renderContext={Context.LIVE_VIEW} />
+  </div>
+);

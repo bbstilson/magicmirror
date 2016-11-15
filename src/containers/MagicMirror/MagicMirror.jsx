@@ -13,7 +13,7 @@ const MagicMirror = ({ renderContext, portrait }) => (
     <Ratio x={1} y={2} portrait={portrait}>
       {(width, height) => {
         const props = { width, height };
-
+        console.log(`width = ${width} | height = ${height}`)
         return renderContext === Context.LIVE_VIEW
           ? <DraggableMirror {...props} />
           : <StaticMirror {...props} />;

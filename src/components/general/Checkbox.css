@@ -19,9 +19,13 @@
 }
 
 .checkbox__button:hover {
-  background: hsla(208, 56%, 40%, 1);
+  background: hsla(208, 56%, 60%, 1);
 }
 
 .checkbox__button--active {
   background: hsla(208, 56%, 50%, 1);
+}
+
+.checkbox__button--active:hover {
+  background: hsla(208, 56%, 40%, 1);
 }

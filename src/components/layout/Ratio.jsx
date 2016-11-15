@@ -12,19 +12,23 @@ export default class Ratio extends Component {
 
   getComputedDimensions = ({ x, y }) => {
     let { width, height } = this.refs.container.getBoundingClientRect();
-
-    // if portrait, we know the height and need to find the width
+    
+    // If portrait, we know the height and need to find the width
     // else, we know the width and need to find the height
     if (this.props.portrait) {
       width = height * x / y;
     } else {
-      height = width * y / x;
+      height = width * x / y;
     }
 
-    // if (height > window.innerHeight) {
-    //   height = window.innerHeight;
-    //   width = ((height * x) / y);
-    // }
+    // Check that the dimensions aren't larger than the possible area.
+    if (height > window.innerHeight) {
+      height = window.innerHeight;
+      width = height * x / y;
+    } else if (width > window.innerWidth) {
+      width = window.innerWidth;
+      height = width * x / y;
+    }
 
     return { width, height };
   };
