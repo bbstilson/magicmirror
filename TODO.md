@@ -6,6 +6,8 @@
 - custom settings
 - make sure login actually works
 - Default positions (top left, top right, center, etc)
+- consolidate util functions in mirrors (calculating height and width)
+- clean up redux connects
 
 #Modules to build
 - current weather

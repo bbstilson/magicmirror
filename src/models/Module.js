@@ -11,11 +11,12 @@ import { getValueByDividingBy } from 'utils/modules';
  * @param {object} custom - Any custom values.
  */
 class Module {
-  constructor(name, path, description, size, custom = {}) {
+  constructor(name, path, description, landSize, portSize, custom = {}) {
     this.name = name ? name : this.throwError('name');
     this.path = path ? path : this.throwError('path');
     this.description = description ? description : this.throwError('description');
-    this.size = size ? this.setSize(size) : this.throwError('size');
+    this.landSize = landSize ? this.setSize(landSize) : this.throwError('landSize');
+    this.portSize = portSize ? this.setSize(portSize) : this.throwError('portSize');
     this.position = this.initPosition();
     this.custom = custom;
   }

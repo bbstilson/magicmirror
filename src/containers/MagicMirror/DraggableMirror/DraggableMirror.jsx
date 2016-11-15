@@ -14,6 +14,7 @@ class DraggableMirror extends Component {
   static propTypes = {
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
+    portrait: PropTypes.bool.isRequired,
     activeModules: PropTypes.arrayOf(PropTypes.instanceOf(Module).isRequired),
     connectDropTarget: PropTypes.func.isRequired
   };
@@ -23,13 +24,14 @@ class DraggableMirror extends Component {
   };
 
   render() {
-    const { width, height, connectDropTarget, activeModules } = this.props;
+    const { width, height, connectDropTarget, activeModules, portrait } = this.props;
 
     return connectDropTarget(
       <div style={{ width, height }}>
         <div className="draggable-mirror" style={{ height }}>
           {activeModules.map((module) => {
-            const { name, position, size } = module;
+            const { name, position, portSize, landSize } = module;
+            const size = portrait ? portSize : landSize;
             const computedHeight = size.calculateHeightFrom(height);
             const computedWidth = size.square ? computedHeight : size.calculateWidthFrom(width);
 

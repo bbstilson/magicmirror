@@ -12,8 +12,8 @@ const MagicMirror = ({ renderContext, portrait }) => (
   <div className={`magicmirror flex--row--center full-${portrait ? 'height' : 'width'}`}>
     <Ratio x={1} y={2} portrait={portrait}>
       {(width, height) => {
-        const props = { width, height };
-        console.log(`width = ${width} | height = ${height}`)
+        const props = { width, height, portrait };
+
         return renderContext === Context.LIVE_VIEW
           ? <DraggableMirror {...props} />
           : <StaticMirror {...props} />;

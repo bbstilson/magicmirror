@@ -8,5 +8,5 @@
  */
 
 export function getValueByDividingBy (divisor) {
-  return displayWidth => displayWidth / divisor;
+  return displayDimension => displayDimension / divisor;
 }
