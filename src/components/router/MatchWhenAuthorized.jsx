@@ -1,18 +1,31 @@
 import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
 import Match from 'react-router/Match';
 import Redirect from 'react-router/Redirect';
 
-const MatchWhenAuthorized = ({ isAuthorized, component: Component, ...rest }) => (
+const MatchWhenAuthorized = ({ isAuthed, component: Component, ...rest }) => (
   <Match {...rest} render={props => (
-      isAuthorized ? 
+      isAuthed ? 
       <Component {...props} /> :
       <Redirect to={{ pathname: '/login', state: { from: props.location }}} />
     )} />
 );
 
 MatchWhenAuthorized.propTypes = {
-  isAuthorized: PropTypes.bool.isRequired,
+  isAuthed: PropTypes.bool.isRequired,
   component: PropTypes.func.isRequired
 };
 
-export default MatchWhenAuthorized;
+/**
+ * REDUX
+ */
+
+function mapStateToProps ({ auth }) {
+  return {
+    isAuthed: auth.isAuthed,
+    isFetching: auth.isFetching,
+    error: auth.error
+  };
+}
+
+export default connect(mapStateToProps)(MatchWhenAuthorized);

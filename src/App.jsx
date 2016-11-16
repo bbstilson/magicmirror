@@ -1,5 +1,6 @@
 import { Home, Dashboard, Settings, Login } from 'containers';
 import { MatchWhenAuthorized, NoMatch } from 'components/router';
+
 import './App.css';
 
 import React, { Component } from 'react';
@@ -12,35 +13,15 @@ import Router from 'react-router/BrowserRouter';
 const store = createStore();
 
 export default class App extends Component {
-  login = () => {
-    localStorage.setItem("magicMirrorAuth", true);
-  }
-
-  isAuthorized = () => {
-    return localStorage.getItem("magicMirrorAuth") === 'true';
-  }
-
   render() {
-    const isAuthorized = this.isAuthorized();
-
     return (
       <Provider store={store}>
         <Router>
           <div style={{ height: '100vh' }}>
             <Match exactly pattern="/" component={Home} />
-            <Match
-                exactly
-                pattern="/login"
-                render={props => 
-                  <Login {...props} authenticate={this.login} />} />
-            <MatchWhenAuthorized
-                isAuthorized={isAuthorized}
-                pattern="/dashboard"
-                component={Dashboard} />
-            <MatchWhenAuthorized
-                isAuthorized={isAuthorized}
-                pattern="/settings"
-                component={Settings} />
+            <Match exactly pattern="/login" render={props => <Login {...props} />} />
+            <MatchWhenAuthorized pattern="/dashboard" component={Dashboard} />
+            <MatchWhenAuthorized pattern="/settings" component={Settings} />
             <Miss component={NoMatch}/>
           </div>
         </Router>

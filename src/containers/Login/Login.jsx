@@ -1,16 +1,11 @@
+import { login } from 'redux/modules/auth';
+
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Redirect from 'react-router/Redirect';
 
-export default class Login extends Component {
-  constructor() {
-    super();
-    this.state = { redirectToReferrer: false };
-  }
-
-  login = () => {
-    this.props.authenticate();
-    this.setState({ redirectToReferrer: true });
-  }
+class Login extends Component {
+  state = { redirectToReferrer: false };
 
   render() {
     const { state } = this.props.location;
@@ -20,8 +15,32 @@ export default class Login extends Component {
       <div>
         <h1>I'm the login page!</h1>
         {this.state.redirectToReferrer && <Redirect to={from.pathname || '/'} />}
-        <button onClick={this.login}>Login</button>
+        <button onClick={this.props.auth}>Login</button>
       </div>
     );
   }
 }
+
+/**
+ * REDUX
+ */
+
+function mapStateToProps () {
+  return {};
+}
+
+function mapDispatchToProps (dispatch) {
+  return {
+    auth() {
+      dispatch(login());
+    },
+    isAuthed() {
+      // dispatch(isAuthed())
+    },
+    unauth() {
+      // dispatch(unauth())
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
