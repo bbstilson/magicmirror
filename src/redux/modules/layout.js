@@ -3,6 +3,7 @@
  */
 
 const ROTATE_ORIENTATION = 'ROTATE_ORIENTATION';
+const TOGGLE_MODULE_BORDERS = 'TOGGLE_MODULE_BORDERS';
 
 /**
  * ACTIONS
@@ -14,12 +15,19 @@ export function rotateOrientation () {
   };
 }
 
+export function toggleModuleBorders () {
+  return {
+    type: TOGGLE_MODULE_BORDERS
+  };
+}
+
 /**
  * REDUCERS
  */
 
 const initialState = {
-  portrait: false
+  portrait: true,
+  displayModuleBorders: true
 };
 
 export default (state = initialState, action = {}) => {
@@ -28,6 +36,10 @@ export default (state = initialState, action = {}) => {
       return {
         portrait: !state.portrait
       };
+    case TOGGLE_MODULE_BORDERS:
+      return {
+        displayModuleBorders: !state.displayModuleBorders
+      }
     default:
       return state;
   }

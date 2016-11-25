@@ -11,6 +11,7 @@ class StaticMirror extends Component {
   static propTypes = {
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
+    portrait: PropTypes.bool.isRequired,
     activeModules: PropTypes.arrayOf(PropTypes.instanceOf(Module).isRequired),
   };
 
@@ -20,23 +21,20 @@ class StaticMirror extends Component {
   };
 
   componentDidMount() {
-    // fake api delay
-    setTimeout(() => {
-      Promise.all(
-        this.props.activeModules.map((module) => {
-          return Promise.resolve(require(`modules/${module.path}/index.js`))
-            .then((m) => Promise.resolve({
-              ...module,
-              Component: m.default
-            }));
-        })
-      ).then(modules => {
-        this.setState({
-          modules,
-          loading: false
-        });
+    Promise.all(
+      this.props.activeModules.map((module) => {
+        return Promise.resolve(require(`modules/${module.path}/index.js`))
+          .then((m) => Promise.resolve({
+            ...module,
+            Component: m.default
+          }));
+      })
+    ).then(modules => {
+      this.setState({
+        modules,
+        loading: false
       });
-    }, 1000);
+    });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -44,7 +42,7 @@ class StaticMirror extends Component {
   }
 
   render() {
-    const { width, height } = this.props;
+    const { width, height, portrait } = this.props;
     const { loading, modules } = this.state;
     
     return (
@@ -54,7 +52,8 @@ class StaticMirror extends Component {
           <Loading color="#eee" size="150px" stroke="5px" /> :
           <div className="static-mirror__container">
             {modules.map((module, idx) => {
-              const { Component, position, size } = module;
+              const { Component, position, portSize, landSize } = module;
+              const size = portrait ? portSize : landSize;
               const computedHeight = size.calculateHeightFrom(height);
               const computedWidth = size.square ? computedHeight : size.calculateWidthFrom(width);
 

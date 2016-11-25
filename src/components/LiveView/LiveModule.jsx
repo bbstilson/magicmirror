@@ -1,5 +1,5 @@
 import './LiveModule.css';
-import ItemType from 'constants/ItemType';
+import ItemType from 'constants/itemtype';
 import Module from 'models/Module';
 import { positionAndDimensionsToStyles } from 'utils/styles';
 
@@ -10,7 +10,9 @@ const LiveModule = ({ children, connectDragSource, isDragging, position, width, 
   if (isDragging) return null;
 
   return connectDragSource(
-    <div className="live-module__container" style={positionAndDimensionsToStyles(position, width, height)}>
+    <div
+        className="live-module__container flex--column--center"
+        style={positionAndDimensionsToStyles(position, width, height)}>
       <span className="live-module__name">{children}</span>
     </div>
   );
@@ -47,4 +49,4 @@ function collect(connect, monitor) {
   }
 }
 
-export default DragSource(ItemType.LiveModule, liveModuleSource, collect)(LiveModule);
+export default DragSource(ItemType.LIVE_MODULE, liveModuleSource, collect)(LiveModule);

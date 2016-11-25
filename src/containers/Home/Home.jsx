@@ -1,7 +1,7 @@
 import MagicMirror from 'containers/MagicMirror/MagicMirror';
 import NavigationIcons from 'components/general/NavigationIcons';
 
-import Context from 'constants/Context';
+import Context from 'constants/context';
 import dashboardIcon from 'components/general/icons/dashboard.png';
 import settingsIcon from 'components/general/icons/settings.png';
 
@@ -19,7 +19,7 @@ const config = [
 ];
 
 export default () => (
-  <div>
+  <div className="full">
     <NavigationIcons navConfig={config} />
     <MagicMirror renderContext={Context.HOME} />
   </div>

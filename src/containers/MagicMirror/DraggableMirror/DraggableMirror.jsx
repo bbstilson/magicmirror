@@ -1,6 +1,6 @@
 import LiveModule from 'components/LiveView/LiveModule';
 
-import ItemType from 'constants/ItemType';
+import ItemType from 'constants/itemtype';
 import Module from 'models/Module';
 import { updateModulePosition } from 'redux/modules/modules';
 import './DraggableMirror.css';
@@ -14,6 +14,7 @@ class DraggableMirror extends Component {
   static propTypes = {
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
+    portrait: PropTypes.bool.isRequired,
     activeModules: PropTypes.arrayOf(PropTypes.instanceOf(Module).isRequired),
     connectDropTarget: PropTypes.func.isRequired
   };
@@ -23,13 +24,14 @@ class DraggableMirror extends Component {
   };
 
   render() {
-    const { width, height, connectDropTarget, activeModules } = this.props;
+    const { width, height, connectDropTarget, activeModules, portrait } = this.props;
 
     return connectDropTarget(
       <div style={{ width, height }}>
         <div className="draggable-mirror" style={{ height }}>
           {activeModules.map((module) => {
-            const { name, position, size } = module;
+            const { name, position, portSize, landSize } = module;
+            const size = portrait ? portSize : landSize;
             const computedHeight = size.calculateHeightFrom(height);
             const computedWidth = size.square ? computedHeight : size.calculateWidthFrom(width);
 
@@ -93,6 +95,6 @@ function mapDispatchToProps (dispatch) {
 
 export default connect(mapStateToProps, mapDispatchToProps)(
   DragDropContext(HTML5Backend)(
-    DropTarget(ItemType.LiveModule, windowTarget, collect)(DraggableMirror)
+    DropTarget(ItemType.LIVE_MODULE, windowTarget, collect)(DraggableMirror)
   )
 );

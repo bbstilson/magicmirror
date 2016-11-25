@@ -21,7 +21,7 @@ const config = [
 ];
 
 export default () => (
-  <div className="dashboard">
+  <div className="dashboard flex--row--center">
     <NavigationIcons navConfig={config} />
     <HalfPane border>
       <ModulePicker />

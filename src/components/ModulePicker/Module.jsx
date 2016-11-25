@@ -28,9 +28,9 @@ export default class Module extends Component {
 
     return (
       <div className="module__container">
-        <div className="module__data">
+        <div className="flex--row--center flex--space-between">
           <h3>{name}</h3>
-          <div className="module__buttons">
+          <div>
             <ModuleButton add active={active} onClick={() => { this.props.add(module) }}>Add</ModuleButton>
             <ModuleButton remove active={active} onClick={() => { this.props.remove(module) }}>Remove</ModuleButton>
             <ModuleButton primary onClick={this.toggleInfo}>Info</ModuleButton>

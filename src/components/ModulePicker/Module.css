@@ -1,16 +1,4 @@
 .module__container {
-  width: 100%;
   padding: 10px 20px;
   border-bottom: 1px solid lightgray;
-}
-
-.module__buttons {
-}
-
-.module__data {
-  width: 100%;
-  display: flex; 
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
 }

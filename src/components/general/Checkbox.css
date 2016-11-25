@@ -1,0 +1,27 @@
+.checkbox {
+  padding: 10px 0;
+}
+
+.checkbox:not(:last-of-type) {
+  border-bottom: 1px dashed lightgray;
+}
+
+.checkbox__button {
+  border-radius: 3px;
+  border: 1px solid hsla(208, 56%, 50%, 1);
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+}
+
+.checkbox__button:hover {
+  background: hsla(208, 56%, 60%, 1);
+}
+
+.checkbox__button--active {
+  background: hsla(208, 56%, 50%, 1);
+}
+
+.checkbox__button--active:hover {
+  background: hsla(208, 56%, 40%, 1);
+}
