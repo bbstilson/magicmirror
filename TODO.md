@@ -1,10 +1,10 @@
 # Todos:
-- need to work out some sort of grid system maybe?
+- make sure login actually works
 - hook up firebase
+- save button on the settings menu
 - google auth
 - fix overflow on Modules
 - custom settings
-- make sure login actually works
 - Default positions (top left, top right, center, etc)
 - consolidate util functions in mirrors (calculating height and width)
 - clean up redux connects

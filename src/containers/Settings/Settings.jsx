@@ -4,6 +4,7 @@ import Checkbox from 'components/general/Checkbox';
 import dashboardIcon from 'components/general/icons/dashboard.png';
 import magicmirrorIcon from 'components/general/icons/magicmirror.png';
 import { rotateOrientation } from 'redux/modules/layout';
+import { logout } from 'redux/modules/auth';
 import './Settings.css';
 
 import React, { Component } from 'react';
@@ -25,6 +26,10 @@ class Settings extends Component {
     this.props.rotateOrientation();
   }
 
+  logout = () => {
+    this.props.logout();
+  }
+
   render() {
     const { portrait } = this.props;
 
@@ -34,6 +39,7 @@ class Settings extends Component {
         <h1 className="settings__title">Settings</h1>
         <div className="settings__container">
           <Checkbox value="Portrait" onClick={this.toggleOrientation} active={portrait} />
+          <Checkbox value="Logout" onClick={this.logout} active />
         </div>
       </div>
     );
@@ -54,6 +60,9 @@ function mapDispatchToProps (dispatch) {
   return {
     rotateOrientation() {
       dispatch(rotateOrientation());
+    },
+    logout() {
+      dispatch(logout());
     }
   }
 }

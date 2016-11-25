@@ -6,10 +6,6 @@
   border-bottom: 1px dashed lightgray;
 }
 
-.checkbox__value {
-
-}
-
 .checkbox__button {
   border-radius: 3px;
   border: 1px solid hsla(208, 56%, 50%, 1);

@@ -1,23 +1,59 @@
-import { login } from 'redux/modules/auth';
+import LoginLoading from './LoginLoading';
 
-import React, { Component } from 'react';
+import { login } from 'redux/modules/auth';
+import './Login.css';
+
+import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
-import Redirect from 'react-router/Redirect';
+import classnames from 'classnames';
 
 class Login extends Component {
-  state = { redirectToReferrer: false };
+  static propTypes = {
+    authenticating: PropTypes.bool.isRequired,
+    login: PropTypes.func.isRequired
+  }
 
-  render() {
-    const { state } = this.props.location;
-    const from = state ? state.from : {};
+  state = {
+    emailError: false,
+    pwError: false
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value.trim();
+    const pw = e.target.password.value.trim();
+
+    if (email.length === 0) {
+      this.setState({ emailError: true });
+    } else if (pw.length === 0) {
+      this.setState({ pwError: true });
+    } else {
+      this.props.login(email, pw);
+    }
+  }
+
+  render () {
+    const { emailError, pwError } = this.state;
+
+    const emailClasses = classnames("login__input", { 'input-error': emailError });
+    const pwClasses = classnames("login__input", { 'input-error': pwError });
 
     return (
-      <div>
-        <h1>I'm the login page!</h1>
-        {this.state.redirectToReferrer && <Redirect to={from.pathname || '/'} />}
-        <button onClick={this.props.auth}>Login</button>
+      <div className="flex--column--center full-height login">
+        <div className="login__container">
+          {this.props.authenticating && <LoginLoading />}
+          <div>
+            <h1 className="login__title">Login</h1>
+            {(emailError || pwError) && <p>Oops. Looks like you forgot to enter something...</p>}
+            <form onSubmit={this.handleSubmit}>
+              <input className={emailClasses} type="email" name="email" placeholder="Email" />
+              <input className={pwClasses} type="password" name="password" placeholder="Password" />
+              <button className="login__input login__submit" type="submit">Login</button>
+            </form>
+          </div>
+        </div>
       </div>
-    );
+    )
   }
 }
 
@@ -25,20 +61,17 @@ class Login extends Component {
  * REDUX
  */
 
-function mapStateToProps () {
-  return {};
+function mapStateToProps ({ auth }) {
+  return {
+    authenticating: auth.isFetching,
+    authFailed: auth.error
+  };
 }
 
 function mapDispatchToProps (dispatch) {
   return {
-    auth() {
-      dispatch(login());
-    },
-    isAuthed() {
-      // dispatch(isAuthed())
-    },
-    unauth() {
-      // dispatch(unauth())
+    login(email, pw) {
+      dispatch(login(email, pw));
     }
   }
 }
