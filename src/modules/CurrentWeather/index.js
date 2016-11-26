@@ -39,12 +39,6 @@ export default class CurrentWeather extends Component {
 
     // Get the current article.
     this.fetchWeather(this.props.source);
-
-    // Set the size for the canvas.
-    console.log(this.container.style.width);
-    this.setState({
-      // size: this.container.style.width
-    });
   }
 
   componentWillUnmount() {
@@ -55,7 +49,7 @@ export default class CurrentWeather extends Component {
     const { loading, data } = this.state;
 
     return (
-      <div ref={n => { this.container = n }}>
+      <div>
         {
           loading
           ? <Loading color="#fff" stroke="2px" />
