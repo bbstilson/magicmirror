@@ -39,7 +39,7 @@ class StaticMirror extends Component {
   }
 
   render() {
-    const { width, height, portrait, displayModuleBorders } = this.props;
+    const { width, height, displayModuleBorders } = this.props;
     const { loading, modules } = this.state;
     
     return (
@@ -48,22 +48,13 @@ class StaticMirror extends Component {
           loading ?
           <Loading color="#eee" size="150px" stroke="5px" /> :
           <div className="static-mirror__container">
-            {modules.map((module, idx) => {
-              const { Component, position, portSize, landSize } = module;
-              const size = portrait ? portSize : landSize;
-              const computedHeight = size.calculateHeightFrom(height);
-              const computedWidth = size.square ? computedHeight : size.calculateWidthFrom(width);
-
-              return (
-                <StaticComponent
-                    key={module.name}
-                    component={Component}
-                    position={position}
-                    width={computedWidth}
-                    height={computedHeight}
-                    displayModuleBorders={displayModuleBorders} />
-              );
-            })}
+            {modules.map((module, idx) => (
+              <StaticComponent
+                  key={module.name}
+                  component={module.Component}
+                  position={module.position}
+                  displayModuleBorders={displayModuleBorders} />
+            ))}
           </div>
         }
       </div>

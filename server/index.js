@@ -22,7 +22,7 @@ app.get('/api/news', (request, response) => {
   const SOURCE = `source=${request.query.source ? request.query.source : "bbc-news"}`
   const OPTIONS = "sortBy=top";
   const API_KEY = `apiKey=${process.env.NEWS_API_KEY}`;
-  const url = `${ROOT}?${SOURCE}&${OPTIONS}&${NEWS_API_KEY}`;
+  const url = `${ROOT}?${SOURCE}&${OPTIONS}&${API_KEY}`;
 
   axios.get(url)
     .then(checkStatus)
