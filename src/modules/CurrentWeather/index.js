@@ -8,8 +8,7 @@ import './CurrentWeather.css';
 export default class CurrentWeather extends Component {
   state = {
     loading: true,
-    quarterHour: (15 * 60 * 1000),
-    size: 0
+    quarterHour: (15 * 60 * 1000)
   }
 
   fetchWeather = () => {
@@ -20,11 +19,7 @@ export default class CurrentWeather extends Component {
     axios.get(url)
       .then(({ data }) => {
         this.setState({ data, loading: false });
-        /* eslint-disable */
-        const skycon = new Skycons({ color: 'white' });
-        /* eslint-disable */
-        skycon.set(this.icon, data.icon);
-        skycon.play();
+        this.createIcon(this.icon, data.icon);
       })
       .catch(err => {
         this.setState({ loading: false });
@@ -32,13 +27,21 @@ export default class CurrentWeather extends Component {
       });
   }
 
+  createIcon = (element, icon) => {
+    /* eslint-disable */
+    const skycon = new Skycons({ color: 'white' });
+    /* eslint-disable */
+    skycon.set(element, icon);
+    skycon.play();
+  }
+
   componentDidMount() {
     // Set up the timer.
     const weatherInterval = setInterval(this.fetchWeather, this.state.quarterHour);
     this.setState({ weatherInterval });
 
-    // Get the current article.
-    this.fetchWeather(this.props.source);
+    // Fetch the current weather.
+    this.fetchWeather();
   }
 
   componentWillUnmount() {
