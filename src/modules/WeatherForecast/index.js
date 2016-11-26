@@ -41,8 +41,8 @@ export default class WeatherForecast extends Component {
     const weatherInterval = setInterval(this.fetchWeather, this.state.fourHours);
     this.setState({ weatherInterval });
 
-    // Get the current article.
-    this.fetchWeather(this.props.source);
+    // Fetch the weather forecast.
+    this.fetchWeather();
   }
 
   componentWillUnmount() {
