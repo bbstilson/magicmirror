@@ -8,8 +8,7 @@ import './CurrentWeather.css';
 export default class CurrentWeather extends Component {
   state = {
     loading: true,
-    quarterHour: (15 * 60 * 1000),
-    size: 0
+    quarterHour: (15 * 60 * 1000)
   }
 
   fetchWeather = () => {

@@ -1,8 +1,8 @@
 .compliments__container {
-  height: 100%;
+  width: 90%;
 }
 
 .compliments__text {
-  font-size: 1em;
+  font-weight: 300;
   text-align: center;
 }
