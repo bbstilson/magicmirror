@@ -13,6 +13,7 @@ class StaticMirror extends Component {
     height: PropTypes.number.isRequired,
     portrait: PropTypes.bool.isRequired,
     activeModules: PropTypes.arrayOf(PropTypes.instanceOf(Module).isRequired),
+    displayModuleBorders: PropTypes.bool.isRequired
   };
 
   state = { 
@@ -37,12 +38,8 @@ class StaticMirror extends Component {
     });
   }
 
-  componentWillReceiveProps(nextProps) {
-
-  }
-
   render() {
-    const { width, height, portrait } = this.props;
+    const { width, height, portrait, displayModuleBorders } = this.props;
     const { loading, modules } = this.state;
     
     return (
@@ -63,7 +60,8 @@ class StaticMirror extends Component {
                     component={Component}
                     position={position}
                     width={computedWidth}
-                    height={computedHeight} />
+                    height={computedHeight}
+                    displayModuleBorders={displayModuleBorders} />
               );
             })}
           </div>
@@ -76,9 +74,10 @@ class StaticMirror extends Component {
 /**
  * Redux
  */
-function mapStateToProps ({ modules }) {
+function mapStateToProps ({ modules, layout }) {
   return {
     activeModules: modules.activeModules,
+    displayModuleBorders: layout.displayModuleBorders
   };
 }
 
