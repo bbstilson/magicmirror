@@ -1,4 +1,7 @@
 .static-component {
   position: absolute;
+}
+
+.static-component--bordered {
   border: 1px solid white;
 }
