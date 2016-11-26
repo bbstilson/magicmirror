@@ -1,7 +1,7 @@
 export function positionAndDimensionsToStyles ({ left, top }, width, height) {
   return {
-    width,
-    height,
+    width: width || 'auto',
+    height: height || 'auto',
     left: left + '%',
     top: top + '%'
   };
