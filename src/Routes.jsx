@@ -25,7 +25,7 @@ Routes.propTypes = {
 
 function mapStateToProps({ auth }) {
   return {
-    authed: true//auth.isAuthed
+    authed: auth.isAuthed
   };
 }
 

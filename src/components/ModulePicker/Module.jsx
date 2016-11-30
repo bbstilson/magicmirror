@@ -36,7 +36,7 @@ export default class Module extends Component {
             <ModuleButton primary onClick={this.toggleInfo}>Info</ModuleButton>
           </div>
         </div>
-        {this.state.expanded && <ModuleDescription description={description} />}
+        {this.state.expanded && <ModuleDescription description={description} custom={module.custom} />}
       </div>
     );
   }
