@@ -1,8 +1,6 @@
 ## Todos:
 - hook up firebase to modules
 - save button on the settings menu
-- fix overflow on Modules
-- custom settings
 - Default positions (top left, top right, center, etc)
 - clean up redux connects
 
