@@ -7,8 +7,7 @@ export default new Module(
   { height: 4, square: true },
   { height: 8, square: true },
   {
-    type: [ 'Digital', 'Analogue' ],
-    military: false,
+    isDigital: true,
     display: [
       'h:mm:ss a', 'h:mm:ss A', // 1:00:00 pm | 1:00:00 PM
       'h:mm a', 'h:mm A',       // 1:00 pm | 1:00 PM
