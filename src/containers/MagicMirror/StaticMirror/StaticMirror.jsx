@@ -53,6 +53,7 @@ class StaticMirror extends Component {
                   key={module.name}
                   component={module.Component}
                   position={module.position}
+                  custom={module.custom}
                   displayModuleBorders={displayModuleBorders} />
             ))}
           </div>
