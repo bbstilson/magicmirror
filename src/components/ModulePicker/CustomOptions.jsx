@@ -11,6 +11,6 @@ export default class CustomOptions extends Component {
   //   );
   // }
   render() {
-    return null;
+    return <div/>;
   }
 }
