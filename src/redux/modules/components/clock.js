@@ -18,7 +18,7 @@ export function setDisplay (display) {
 
 const initialState = {
   isDigital: true,
-  display: Clock.Display.HMMSSa
+  display: Clock.Display.HMM
 }
 
 export default (state = initialState, action = {}) => {

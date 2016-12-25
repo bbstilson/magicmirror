@@ -29,7 +29,7 @@ class ClockModule extends Component {
     const { isDigital, display } = this.props;
 
     return isDigital
-      ? <h1 className="clock-module">{moment(this.state.now).format(display)}</h1>
+      ? <p className="clock-module">{moment(this.state.now).format(display)}</p>
       : <Analogue />
 
   }
