@@ -5,9 +5,12 @@ export default class CustomOptions extends Component {
     options: PropTypes.object.isRequired
   }
 
+  // render() {
+  //   return (
+  //     <pre>{JSON.stringify(this.props.options, null, 2)}</pre>
+  //   );
+  // }
   render() {
-    return (
-      <pre>{JSON.stringify(this.props.options, null, 2)}</pre>
-    );
+    return null;
   }
 }

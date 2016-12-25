@@ -26,7 +26,7 @@ export function toggleModuleBorders () {
  */
 
 const initialState = {
-  portrait: false,
+  portrait: true,
   displayModuleBorders: true
 };
 
