@@ -3,7 +3,7 @@ import Module from 'models/Module';
 export default new Module(
   "Clock",
   "Clock",
-  "This module displays the current date and time. The information will be updated realtime.",
+  "This module displays the current time.",
   { width: 6, height: 10 },
   { width: 4, height: 15 },
   {
